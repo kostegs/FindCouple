@@ -14,7 +14,8 @@ namespace Cards
     {
         static string[] iconsName;
         static int[,] cards;
-        static int cardCount = 16;
+        static int[] usedIndexes;
+        static int cardCount = 12;
         static int cardWidth = 100;
         static int cardHeight = 100;
 
@@ -64,7 +65,24 @@ namespace Cards
                     while (true)
                     {
                         id = rnd.Next(1, 6);
-                        break;
+
+                        bool indexArrayIsFilled = usedIndexes.Select(index => index).Where(index => index == 0).Count() == 0;
+                        bool IndexWasUsed = false;
+
+                        if (indexArrayIsFilled)
+                        {
+                            for (int j = 0; j < usedIndexes.Length; j++)
+                                usedIndexes[j] = 0;
+                        }
+                        else                        
+                            IndexWasUsed = usedIndexes.Select(index => index).Where(index => index == id).Count() > 0;
+
+                        if (!IndexWasUsed)
+                        {
+                            usedIndexes[id-1] = id;
+                            break;
+                        }
+                            
 
                         // !!! bad moment
                         // Only 2 cards must be equal
@@ -153,6 +171,7 @@ namespace Cards
             int firstOpenCardIndex = -1;
             int secondOpenCardIndex = -1;
             int remainingCard = 0;
+            usedIndexes = new int[5];
 
             LoadIcon();
             InitWindow(800, 600, "Find Couple");
