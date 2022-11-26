@@ -58,8 +58,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cards.cs" />
     <Compile Include="FindCouple.cs" />
+    <Compile Include="Kernel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screens.cs" />
+    <Compile Include="Settings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
