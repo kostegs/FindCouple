@@ -1,4 +1,4 @@
-#Find Couple
+# Find Couple
 
 This is a prototype of the game "Find Couple", where player has to find pairs of the cards (among closed cards), select them and open. If the player is right he'll get scores. This release was created by using SFML-library (not original, but changed in order to make it easier).
 
