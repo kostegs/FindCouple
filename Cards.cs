@@ -2,10 +2,7 @@
 using SFML.System;
 using SFML.Window;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cards
 {
@@ -20,7 +17,7 @@ namespace Cards
         private Clock _clockForOpenCards = new Clock();
         private Clock _timeLeftClock = new Clock();
         private static string CardClickSound = LoadSound(@"./res/CardClick.ogg");
-        private static string CardDestroySound = LoadSound(@"./res/DestoryCardSound.ogg");
+        private static string CardDestroySound = LoadSound(@"./res/DestroyCardSound.ogg");        
 
         private int[,] cards;
         private Cards() { }

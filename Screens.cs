@@ -1,11 +1,7 @@
 ﻿using SFML.Graphics;
 using SFML.Learning;
 using SFML.Window;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cards
 {
@@ -60,7 +56,6 @@ namespace Cards
         }
         public void DrawSettingsWindow()
         {
-
             void WriteColoredTextSettingsWindow(int difLevel, string textOfDifLevel)
             {
                 if (Settings.difficultyLevel == difLevel)
@@ -83,11 +78,7 @@ namespace Cards
                 DrawText(140, 450, "Для старты игры нажмите P", 25);
                 DrawText(140, 480, "Для выхода из игры нажмите Q", 25);
             }
-        }
-        public void ProcessGameOverWindow()
-        {
-            
-        }
+        }        
         public void DrawGameOverWindow()
         {
             string backgroundTexture = LoadTexture(@"./res/GameOverTexture.png");
@@ -105,7 +96,7 @@ namespace Cards
 
             ClearWindow(SFML.Graphics.Color.Black);
 
-            DrawSprite(backgroundTexture, 10, 10);
+            DrawSprite(backgroundTexture, 200, 10);
 
             SetFillColor(255, 255, 255);
             DrawText(240, 270, $"Партия игры завершена!", 20);

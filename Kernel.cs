@@ -1,10 +1,5 @@
 ﻿using SFML.Learning;
 using SFML.System;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cards
 {
@@ -82,25 +77,19 @@ namespace Cards
                 {
                     _timeLeftClock.Restart();
                     Settings.lastGameMode = GameMode.PlayMode;
-                }
-                    
+                }                    
 
                 if (GetLeftTime() == 0)
                     SetGameMode(GameMode.GameOver);
                 else
                     Cards.GetInstance().ProcessCards();
-            }
-                
-            else if (Settings.gameMode == GameMode.GameOver)
+            }                
+            else if (Settings.gameMode == GameMode.GameOver && Settings.lastGameMode == GameMode.PlayMode)
             {
-                if (Settings.lastGameMode == GameMode.PlayMode)
-                {
-                    Settings.lastGameMode = GameMode.GameOver;  
+                Settings.lastGameMode = GameMode.GameOver;  
                     
-                    if (LastScoreRecord < Score)                    
-                        SetNewRecord = true;
-                }
-                screens.ProcessGameOverWindow();
+                if (LastScoreRecord < Score)                    
+                    SetNewRecord = true;                
             }
         }
         public void Draw()
@@ -114,10 +103,8 @@ namespace Cards
             else if (Settings.gameMode == GameMode.GameOver)
                 screens.DrawGameOverWindow();
 
-            if (Settings.gameMode == GameMode.PlayMode)
-            {
-                screens.DrawScoreAndTimer();
-            }
+            if (Settings.gameMode == GameMode.PlayMode)            
+                screens.DrawScoreAndTimer();            
         }
         public int GetLeftTime()
         {

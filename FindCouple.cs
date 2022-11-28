@@ -1,18 +1,9 @@
-﻿using System;
-using SFML;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SFML.Learning;
-using System.Runtime.InteropServices;
-using SFML.Window;
+﻿using SFML.Learning;
 
 namespace Cards
 {
     internal class FindCouple : Game
-    {
-       
+    {       
         static void Main(string[] args)
         {
             Kernel kernel = Kernel.GetInstance();
@@ -25,9 +16,7 @@ namespace Cards
             {
                 DispatchEvents();
 
-                kernel.GameLogic();
-                
-                
+                kernel.GameLogic();                
                 
                 ClearWindow();
                 kernel.Draw();
@@ -36,10 +25,6 @@ namespace Cards
 
                 Delay(1);
             }
-
-            Console.WriteLine("Выиграл");
-            Delay(5000);
-
         }
     }
 }
